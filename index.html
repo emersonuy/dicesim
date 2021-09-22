@@ -1,0 +1,173 @@
+<html>
+    <head>
+        <style>
+            * { box-sizing: border-box; }
+
+            body { font-family: sans-serif; }
+
+            .scene {
+                display: inline-flex;
+                width: 200px;
+                height: 200px;
+                margin: 80px;
+                perspective: 400px;
+            }
+
+            .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: translateZ(-100px);
+            transition: transform 0.15s;
+            animation-timing-function: ease;
+            }
+
+            .cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
+            .cube.show-right  { transform: translateZ(-100px) rotateY( -90deg); }
+            .cube.show-back   { transform: translateZ(-100px) rotateY(-180deg); }
+            .cube.show-left   { transform: translateZ(-100px) rotateY(  90deg); }
+            .cube.show-top    { transform: translateZ(-100px) rotateX( -90deg); }
+            .cube.show-bottom { transform: translateZ(-100px) rotateX(  90deg); }
+
+            .cube__face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            }
+
+            .cube__face--front  { background: hsla(  0, 100%, 50%, 1); }
+            .cube__face--right  { background: hsla( 60, 100%, 50%, 1); }
+            .cube__face--back   { background: hsla(120, 100%, 50%, 1); }
+            .cube__face--left   { background: hsla(180, 100%, 50%, 1); }
+            .cube__face--top    { background: hsla(240, 100%, 50%, 1); }
+            .cube__face--bottom { background: hsla(300, 100%, 50%, 1); }
+
+            .cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
+            .cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
+            .cube__face--back   { transform: rotateY(180deg) translateZ(100px); }
+            .cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
+            .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+            .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+            label { margin-right: 10px; }
+        </style>
+    </head>
+<body>
+    <div class="scene">
+        <div class="cube">
+          <div class="cube__face cube__face--front"><img src="dice/1.png" /></div>
+          <div class="cube__face cube__face--back"><img src="dice/2.png" /></div>
+          <div class="cube__face cube__face--right"><img src="dice/3.png" /></div>
+          <div class="cube__face cube__face--left"><img src="dice/4.png" /></div>
+          <div class="cube__face cube__face--top"><img src="dice/5.png" /></div>
+          <div class="cube__face cube__face--bottom"><img src="dice/6.png" /></div>
+        </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front"><img src="dice/1.png" /></div>
+            <div class="cube__face cube__face--back"><img src="dice/2.png" /></div>
+            <div class="cube__face cube__face--right"><img src="dice/3.png" /></div>
+            <div class="cube__face cube__face--left"><img src="dice/4.png" /></div>
+            <div class="cube__face cube__face--top"><img src="dice/5.png" /></div>
+            <div class="cube__face cube__face--bottom"><img src="dice/6.png" /></div>
+          </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front"><img src="dice/1.png" /></div>
+            <div class="cube__face cube__face--back"><img src="dice/2.png" /></div>
+            <div class="cube__face cube__face--right"><img src="dice/3.png" /></div>
+            <div class="cube__face cube__face--left"><img src="dice/4.png" /></div>
+            <div class="cube__face cube__face--top"><img src="dice/5.png" /></div>
+            <div class="cube__face cube__face--bottom"><img src="dice/6.png" /></div>
+           </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front"><img src="dice/1.png" /></div>
+            <div class="cube__face cube__face--back"><img src="dice/2.png" /></div>
+            <div class="cube__face cube__face--right"><img src="dice/3.png" /></div>
+            <div class="cube__face cube__face--left"><img src="dice/4.png" /></div>
+            <div class="cube__face cube__face--top"><img src="dice/5.png" /></div>
+            <div class="cube__face cube__face--bottom"><img src="dice/6.png" /></div>
+          </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front"><img src="dice/1.png" /></div>
+            <div class="cube__face cube__face--back"><img src="dice/2.png" /></div>
+            <div class="cube__face cube__face--right"><img src="dice/3.png" /></div>
+            <div class="cube__face cube__face--left"><img src="dice/4.png" /></div>
+            <div class="cube__face cube__face--top"><img src="dice/5.png" /></div>
+            <div class="cube__face cube__face--bottom"><img src="dice/6.png" /></div>
+          </div>
+      </div>
+      <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front"><img src="dice/1.png" /></div>
+            <div class="cube__face cube__face--back"><img src="dice/2.png" /></div>
+            <div class="cube__face cube__face--right"><img src="dice/3.png" /></div>
+            <div class="cube__face cube__face--left"><img src="dice/4.png" /></div>
+            <div class="cube__face cube__face--top"><img src="dice/5.png" /></div>
+            <div class="cube__face cube__face--bottom"><img src="dice/6.png" /></div>
+          </div>
+      </div>
+      
+      <button class="roll-btn">Roll</button>
+
+      <script>
+            var cubes = document.querySelectorAll('.cube');
+            var radioGroup = document.querySelector('.roll-btn');
+            var currentClass = '';
+            var faces = ["top", "left", "bottom", "back"];
+            var face_index = 0;
+
+            function changeSide(face_index) {
+                let i = 0;
+                for (i=0; i<cubes.length; i++) {
+                    var cube = cubes[i];
+                    var checkedRadio = radioGroup.querySelector(':checked');
+                    var random_roll = (face_index++) % faces.length;
+
+                    var showClass = 'show-' + faces[random_roll];
+
+                    if (face_index !== undefined) {
+                        
+                    }
+                    
+                    cube.className = "cube";
+                    cube.classList.add( showClass );
+
+                }
+            }
+            // set initial side
+            changeSide();
+
+            let ROLL_MAX = 20 + parseInt(Math.random() * 10);
+            let roll_count = 0;
+            
+
+            radioGroup.addEventListener( 'click', function() {
+                roll_count = 0;
+                ROLL_MAX = 20;
+                setInterval(function() {
+                roll_count++;
+
+                if (roll_count < ROLL_MAX) {
+                    let random_face = parseInt((Math.random() * 10) % 6);
+                    changeSide();
+                }
+                
+            }, 100);
+            } );
+      </script>
+</body>
+  
+</html>
